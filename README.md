@@ -49,9 +49,13 @@ Este manifiesto despliega WordPress junto con MariaDB en Kubernetes, con almacen
 kubectl apply -f WordpressDB.yaml
 
 ```
-## 🚀 Instrucciones de despliegue
 
 - Si existe error en el despliegue intentar con:
 ```
 kubectl apply -f WordpressDB.yaml --validate=false
+
+## 🚀 Verificar Pod
+
+```bash
+kubectl get pods
 
