@@ -10,23 +10,7 @@ Este manifiesto despliega WordPress junto con MariaDB en Kubernetes, con almacen
 - **Service MariaDB**: ClusterIP, expone el puerto 3306.
 - **Deployment WordPress**: Aplicación WordPress conectada a MariaDB, con PVC `wordpress-pvc`.
 - **Service WordPress**: NodePort en el puerto 32001 para acceder desde fuera del clúster.
-
-# Despliegue de WordPress en Kubernetes
-
-Este proyecto permite desplegar una instancia de WordPress con base de datos MariaDB sobre un clúster Kubernetes utilizando archivos YAML. Incluye configuración de almacenamiento persistente (`PersistentVolumeClaim`) y servicios de red (`Service`).
-
 ---
-
-## 🧱 Estructura del despliegue
-
-El manifiesto contiene los siguientes recursos:
-
-### 1. PersistentVolumeClaim (PVC)
-
-- **`mariadb-pvc`**: Almacena los datos persistentes de MariaDB en un volumen local.
-- **`wordpress-pvc`**: Almacena los datos persistentes de WordPress.
-
-Ambos PVC usan la `StorageClass` llamada `local-path`, que debe estar habilitada en tu clúster (ej. con `local-path-provisioner` en Minikube o K3s).
 
 **Consideraciones:**
 - El almacenamiento debe ser accesible con modo `ReadWriteOnce` (RWO).
@@ -55,7 +39,6 @@ Ambos PVC usan la `StorageClass` llamada `local-path`, que debe estar habilitada
 - **wordpress**: `NodePort` que expone el puerto `80` (externamente accesible a través del `nodePort: 32001`).
 
 **Consideraciones:**
-- Asegúrate de que el puerto 32001 esté abierto en el firewall si accedes desde fuera del clúster.
 - El `Service` de WordPress permite acceder a la aplicación vía navegador en `http://<NodeIP>:32001`.
 
 ---
@@ -64,3 +47,11 @@ Ambos PVC usan la `StorageClass` llamada `local-path`, que debe estar habilitada
 
 ```bash
 kubectl apply -f WordpressDB.yaml
+
+```
+## 🚀 Instrucciones de despliegue
+
+- Si existe error en el despliegue intentar con:
+```
+kubectl apply -f WorpressDB.yaml --validate=false
+
