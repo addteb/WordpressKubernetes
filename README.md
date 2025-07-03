@@ -16,9 +16,10 @@ Este manifiesto despliega WordPress junto con MariaDB en Kubernetes, con almacen
 ## Despliege
 ```bash
 kubectl apply -f WorpressDB.yaml
-
+```
 ## Cómo verificar los pods corriendo
 Después de aplicar el manifiesto, verificar con:
 
 ```bash
 kubectl get pods
+```
