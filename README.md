@@ -53,5 +53,5 @@ kubectl apply -f WordpressDB.yaml
 
 - Si existe error en el despliegue intentar con:
 ```
-kubectl apply -f WorpressDB.yaml --validate=false
+kubectl apply -f WordpressDB.yaml --validate=false
 
