@@ -45,7 +45,7 @@ Este manifiesto despliega WordPress junto con MariaDB en Kubernetes, con almacen
 
 ## 🚀 Instrucciones de despliegue
 
-Debe existir un path local par la persistencia
+Debe existir un path local para la persistencia
 
 ```bash
 kubectl get storageclass
