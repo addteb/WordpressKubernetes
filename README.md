@@ -45,6 +45,20 @@ Este manifiesto despliega WordPress junto con MariaDB en Kubernetes, con almacen
 
 ## 🚀 Instrucciones de despliegue
 
+Debe existir un path local par la persistencia
+
+```bash
+kubectl get storageclass
+kubectl get pods -n local-path-storage
+```
+
+Crear lo volumenes
+```bash
+kubectl apply -f mariadb-pvc.yaml
+kubectl apply -f wordpress-pvc.yaml
+```
+
+Desplegar APP
 ```bash
 kubectl apply -f WordpressDB.yaml
 ```
